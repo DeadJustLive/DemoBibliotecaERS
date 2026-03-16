@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   COLORES DE MARCA — Editar estas variables para cambiar el tema.
+   Estas son exactamente las mismas de la aplicación real.
+   El theme picker del portfolio debe modificar estas variables.
+   ═══════════════════════════════════════════════════════════════ */
+@theme {
+    /* Color principal: botones CTA, badges NUEVO/OFERTA, tabs activos, FABs */
+    --color-brand-primary: #E68D8D;
+
+    /* Color secundario: logo, textos de categoría, bordes suaves */
+    --color-brand-secondary: #8D6E63;
+
+    /* Acento: highlights, tooltips, elementos especiales */
+    --color-brand-accent: #FFD180;
+
+    /* Fondo general de AMBAS apps (tienda + admin) */
+    --color-brand-background: #FFF8F6;
+
+    /* Texto principal en toda la interfaz */
+    --color-brand-text: #4E342E;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLORES FIJOS — Estos NO cambian con el tema.
+   No los incluyas en el theme picker.
+   ═══════════════════════════════════════════════════════════════
+   footer-dark:   #1a1a2e  (fondo oscuro del footer de la tienda)
+   success:       #10b981  (emerald-500 — estados entregados/ok)
+   danger:        #ef4444  (red-500 — error, stock sin disponible)
+   warning:       #f59e0b  (amber-500 — stock bajo, multi-select)
+   info:          #3b82f6  (blue — botones info)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Base */
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: clamp(14px, 0.875rem + 0.25vw, 16px);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--color-brand-background);
+    color: var(--color-brand-text);
+    margin: 0;
+    padding: 0;
+}
+
+/* Ocultar scrollbar en overflow horizontal (chips de categoría) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

@@ -1,36 +1,22 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   COLORES DE MARCA — Editar estas variables para cambiar el tema.
-   Estas son exactamente las mismas de la aplicación real.
-   El theme picker del portfolio debe modificar estas variables.
+   COLORES DE MARCA — Biblioteca Universitaria
+   Paleta academica: azul profundo, dorado, esmeralda
    ═══════════════════════════════════════════════════════════════ */
 @theme {
-    /* Color principal: botones CTA, badges NUEVO/OFERTA, tabs activos, FABs */
-    --color-brand-primary: #E68D8D;
-
-    /* Color secundario: logo, textos de categoría, bordes suaves */
-    --color-brand-secondary: #8D6E63;
-
-    /* Acento: highlights, tooltips, elementos especiales */
-    --color-brand-accent: #FFD180;
-
-    /* Fondo general de AMBAS apps (tienda + admin) */
-    --color-brand-background: #FFF8F6;
-
-    /* Texto principal en toda la interfaz */
-    --color-brand-text: #4E342E;
+    --color-brand-primary: #1a237e;
+    --color-brand-secondary: #0d1b4a;
+    --color-brand-accent: #c9a84c;
+    --color-brand-background: #f5f7fa;
+    --color-brand-text: #1e293b;
+    --color-brand-emerald: #00796b;
+    --color-brand-gold: #c9a84c;
+    --color-brand-surface: #ffffff;
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   COLORES FIJOS — Estos NO cambian con el tema.
-   No los incluyas en el theme picker.
-   ═══════════════════════════════════════════════════════════════
-   footer-dark:   #1a1a2e  (fondo oscuro del footer de la tienda)
-   success:       #10b981  (emerald-500 — estados entregados/ok)
-   danger:        #ef4444  (red-500 — error, stock sin disponible)
-   warning:       #f59e0b  (amber-500 — stock bajo, multi-select)
-   info:          #3b82f6  (blue — botones info)
+   COLORES FIJOS — No cambian con el tema
    ═══════════════════════════════════════════════════════════════ */
 
 /* Base */
@@ -53,7 +39,7 @@ body {
     padding: 0;
 }
 
-/* Ocultar scrollbar en overflow horizontal (chips de categoría) */
+/* Ocultar scrollbar */
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
@@ -61,4 +47,59 @@ body {
 .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMACIONES
+   ═══════════════════════════════════════════════════════════════ */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-pulse-ring {
+    animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Glass effect utility */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+    background: rgba(13, 27, 74, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
